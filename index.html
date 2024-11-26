@@ -117,6 +117,16 @@
 		}
 	</style>
 </head>
+	
+<script>
+	function closePage() {
+		if (confirm("你确定要关闭这个页面吗？")) {
+			window.close(); // 尝试关闭当前窗口
+		}
+	}
+</script>	
+
+	
 <body>
 	<h1 class="title">宋韵宝图寻踪</h1>
 	<div class="link-container">
@@ -126,8 +136,8 @@
 		<a href="https://www.163.com" target="_blank" title="网易" class="position2">
 			<img src="Bei.png" alt="背景">
 		</a>
-		<a href="https://www.4399.com" class="round-brown-link">开始游戏</a>
-		<a href="https://www.baidu.com" class="round-brown-link2">退出游戏</a>
+		<a href="https://connorpai.github.io/PartOfSong/index.html" class="round-brown-link">开始游戏</a>
+		<a onclick="closePage()"  class="round-brown-link2">退出游戏</a>
 	</div>
 </body>
 </html>
