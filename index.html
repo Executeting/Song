@@ -1,95 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>宋韵宝图寻踪</title>
+	<style>
+		html, body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background-image: url("C:\\Users\\Leama\\Desktop\\WebProject\\index.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+	/* ... 其他CSS代码 ... */
+
+		.position1 {
+			position: absolute;
+			left: 92%; /* 将图片推到屏幕最右边 */
+			top: 1%;
+			width: 666px; /* 或者使用百分比/vw单位，根据你的布局需求 */
+			height: auto;
+			display: flex;
+		}
+
+		.position2 {
+			position: absolute;
+			left: 92%; /* 将图片推到屏幕最右边 */
+			top: 12%;
+			width: 666px; /* 或者使用百分比/vw单位，根据你的布局需求 */
+			height: auto;
+			display: flex;
+		}
+
+/* ... 其他CSS代码 ... */
+		.title {
+			font-size: 9vw; /* 使用视口宽度单位 */
+			color: #8B4513;
+			text-align: center;
+			margin-top: 10vh; /* 使用视口高度单位 */
+			font-weight: normal;
+			position: absolute;
+			top: 10%;
+		}
+
+		a img {
+			max-width: 15%; /* 使用百分比 */
+			max-height: auto;
+		}
+
+		.link-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			margin-top: 20vh; /* 使用视口高度单位 */
+		}
+
+		.round-brown-link, .round-brown-link2 {
+			display: inline-block;
+			width: 25vw; /* 使用视口宽度单位 */
+			height: 5vh; /* 使用视口高度单位，但可能需要调整以确保可读性 */
+			background-color: #8B4513;
+			color: white;
+			text-align: center;
+			line-height: 5vh; /* 使用视口高度单位 */
+			text-decoration: none;
+			border-radius: 9%;
+			transition: background-color 0.3s ease;
+			font-size: 2vw; /* 使用视口宽度单位 */
+			margin: 1vh 0; /* 使用视口高度单位来控制间距 */
+			opacity: 0.8;
+			
+		}
+		.round-brown-link{
+			position: absolute;
+			top: 60%;
+		}
+
+		.round-brown-link2{
+			position: absolute;
+			top: 68%;
+		}
+
+		.round-brown-link:hover, .round-brown-link2:hover {
+			background-color: #A5630B;
+		}
+
+		/* 媒体查询 */
+		@media (max-width: 768px) {
+			.title {
+				font-size: 6vw; /* 在小屏幕上增加字体大小 */
+			}
+
+			a img {
+				max-width: 25%; /* 在小屏幕上增加图片大小 */
+			}
+
+			.round-brown-link, .round-brown-link2 {
+				width: 40vw; /* 在小屏幕上增加按钮宽度 */
+				height: 8vh; /* 在小屏幕上增加按钮高度 */
+				line-height: 8vh; /* 在小屏幕上增加按钮行高 */
+				font-size: 3vw; /* 在小屏幕上增加字体大小 */
+			}
+		}
+	</style>
 </head>
-<style>
-	html{
-		width: 1200px;
-		height: 768px;
-		align-items: center;
-		justify-content: center;
-	}
-	body{
-		
-		background-image: url("index.jpg");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;	
-		margin: 0 auto;
-	}
-	.title{
-		font-size: 120px;	
-		color: #8B4513;
-		text-align: center;
-		margin-top: 180px;
-		font-weight: normal;
-		font-size: 138px;
-		
-
-	}
-	a:hover img{
-        opacity:0.5;
-      }
-
-	.position1{
-		position: absolute;
-		right: 22%;
-		top: 1%;
-	}
-
-	.position2{
-		position: absolute;
-		right: 22%;
-		top: 10%;
-	}
-
-	a.round-brown-link {  
-    display: inline-block; /* 使超链接成为块级元素，但可以与其他元素在同一行 */  
-    width: 280px; /* 设置宽度，根据需要调整 */  
-    height: 70px; /* 设置高度，根据需要调整 */  
-    background-color: #8B4513; /* 棕色背景 */  
-    color: white; /* 文本颜色，这里设置为白色以便在棕色背景上清晰可见 */  
-    text-align: center; /* 文本居中 */  
-    line-height: 70px; /* 设置行高与高度相同，使文本垂直居中 */  
-    text-decoration: none; /* 移除下划线 */  
-    border-radius: 9%; /* 创建圆形边框 */  
-    transition: background-color 0.3s ease; /* 可选：添加背景色过渡效果 */  
-	font-size: 30px;
-	position: fixed;
-	top: 50%;
-	left: 25%;
-	opacity:0.8;
-}  
-
-a.round-brown-link2 {  
-    display: inline-block; /* 使超链接成为块级元素，但可以与其他元素在同一行 */  
-    width: 280px; /* 设置宽度，根据需要调整 */  
-    height: 70px; /* 设置高度，根据需要调整 */  
-    background-color: #8B4513; /* 棕色背景 */  
-    color: white; /* 文本颜色，这里设置为白色以便在棕色背景上清晰可见 */  
-    text-align: center; /* 文本居中 */  
-    line-height: 70px; /* 设置行高与高度相同，使文本垂直居中 */  
-    text-decoration: none; /* 移除下划线 */  
-    border-radius: 9%; /* 创建圆形边框 */  
-    transition: background-color 0.3s ease; /* 可选：添加背景色过渡效果 */  
-	font-size: 30px;
-	position: fixed;
-	top: 60%;
-	left: 25%;
-	opacity:0.8;
-} 
-  
-a.round-brown-link:hover {  
-    background-color: #A5630B; /* 鼠标悬停时改变背景色 */  
-}
-</style>
 <body>
-	<h1 class=title>宋韵宝图寻踪</h1>
-	<a href="https://www.163.com" target="_blank" title="网易"  class="position1"><img src="Setting.png" style="max-height: 36%; max-width: 36%"/></a>
-	<a href="https://www.163.com" target="_blank" title="网易"  class="position2"><img src="Bei.png" style="max-height: 36%; max-width: 36%"/></a>
-	<a href="https://www.4399.com" class="round-brown-link"><i>开始游戏</i></a>
-	<a href="https://www.baidu.com" class="round-brown-link2"><i>退出游戏</i></a>
-
+	<h1 class="title">宋韵宝图寻踪</h1>
+	<div class="link-container">
+		<a href="https://www.163.com" target="_blank" title="网易" class="position1">
+			<img src="C:\\Users\\Leama\\Desktop\\WebProject\\Sucai\\Setting.png" alt="设置" >
+		</a>
+		<a href="https://www.163.com" target="_blank" title="网易" class="position2">
+			<img src="C:\\Users\\Leama\\Desktop\\WebProject\\Sucai\\Bei.png" alt="背景">
+		</a>
+		<a href="https://www.4399.com" class="round-brown-link">开始游戏</a>
+		<a href="https://www.baidu.com" class="round-brown-link2">退出游戏</a>
+	</div>
 </body>
-</html>         
+</html>
