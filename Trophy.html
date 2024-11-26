@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宋韵宝图寻踪</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: url("C:\\Users\\Leama\\Desktop\\WebProject\\index.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .position1 {
+            position: absolute;
+            left: 92%;
+            top: 1%;
+            width: 666px;
+            height: auto;
+            display: flex;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .position2 {
+            position: absolute;
+            left: 92%;
+            top: 12%;
+            width: 666px;
+            height: auto;
+            display: flex;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            opacity: 0.66;
+        }
+
+        a img {
+            max-width: 15%;
+            max-height: auto;
+        }
+
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-top: 20vh;
+        }
+
+        .position1:hover {
+            opacity: 0.66;
+        }
+
+        .position2:hover {
+            opacity: 0.66;
+        }
+
+        .carousel-slide {
+            width: 50%; 
+            height: 35%;
+            position: relative;
+            overflow: hidden;
+            bottom: 10%;
+        }
+
+        .carousel-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .carousel-image.active {
+            display: block;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        button.prev {
+            left: 10px;
+        }
+
+        button.next {
+            right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 6vw;
+            }
+
+            a img {
+                max-width: 25%;
+            }
+
+            .round-brown-link, .round-brown-link2 {
+                width: 40vw;
+                height: 8vh;
+                line-height: 8vh;
+                font-size: 3vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="link-container">
+        <a href="https://www.163.com" target="_blank" title="网易" class="position1">
+            <img src="C:\\Users\\Leama\\Desktop\\WebProject\\Sucai\\Setting.png" alt="设置">
+        </a>
+        <a href="https://www.163.com" target="_blank" title="网易" class="position2">
+            <img src="C:\\Users\\Leama\\Desktop\\WebProject\\Sucai\\Bei.png" alt="背景">
+        </a>
+    </div>
+
+    <div class="carousel-slide">
+        <img src="image1.JPG" class="carousel-image active">
+        <img src="image2.JPG" class="carousel-image">
+        <img src="image3.JPG" class="carousel-image">
+        <!-- Add more images as needed -->
+    </div>
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+
+    <script>
+        let currentIndex = 0;
+        let slides = document.querySelectorAll('.carousel-image');
+        let totalSlides = slides.length;
+        let slideInterval; // 用于存储轮播的setInterval
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        // 开始轮播
+        function startSlide() {
+            slideInterval = setInterval(nextSlide, 1222);
+        }
+
+        // 停止轮播
+        function stopSlide() {
+            clearInterval(slideInterval);
+        }
+
+        // 鼠标悬停时停止轮播
+        document.querySelector('.carousel-slide').addEventListener('mouseover', stopSlide);
+        // 鼠标离开时开始轮播
+        document.querySelector('.carousel-slide').addEventListener('mouseout', startSlide);
+
+        // 初始化轮播
+        startSlide();
+        showSlide(currentIndex);
+    </script>
+</body>
+</html>
