@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>烟花老板</title>
+    <style>
+        /* 设置全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            position: relative;
+            font-family: Arial, sans-serif; /* 添加字体设置 */
+        }
+
+        /* 背景容器设置 */
+       .background-container {
+            width: 100%;
+            height: 100%;
+            background: url('8.png') no-repeat center center fixed; 
+            background-size: cover; /* 使用 cover 确保背景图完全覆盖 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1; /* 确保背景在较低层 */
+        }
+
+        /* 左下角图片容器设置 */
+       .corner-image-container {
+            position: absolute;
+            bottom: 20px; /* 根据需要调整与底部的距离 */
+            left: 250px; /* 根据需要调整与左边的距离 */
+            z-index: 3; /* 确保左下角图片在较高层 */
+        }
+
+        /* 左下角图片样式 */
+        #cornerImage {
+            width: 250px; /* 根据需要调整宽度 */
+            height: auto; /* 保持图片比例 */
+        }
+
+        /* 顶部图片和文本框容器设置 */
+       .top-items-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px; /* 图片之间的间距 */
+            padding-top: 20px; /* 与顶部的距离 */
+            position: absolute;
+            top: 35%; /* 居中对齐到页面的中上方 */
+            left: 50%;
+            transform: translate(-50%, -50%); /* 精确居中 */
+            z-index: 4; /* 确保顶部项目在最顶层 */
+        }
+
+        /* 单个顶部项目设置 */
+       .top-item {
+            text-align: center;
+        }
+
+        /* 顶部图片样式 */
+       .top-item img {
+            width:550px; /* 根据需要调整宽度 */
+            height: auto; /* 保持图片比例 */
+            opacity: 1; /* 确保透明度为 1，避免影响 GIF 动画 */
+        }
+
+        /* 顶部文本框样式 */
+       .top-item p {
+            margin-top: 0; /* 图片与文本框之间的间距 */
+            font-size: 16px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
+            padding: 10px; /* 内边距 */
+            border-radius: 5px; /* 圆角 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+            display: inline-block; /* 确保文本框适应内容宽度 */
+            width: 50%; /* 设置一个相对宽度 */
+            max-width: 300px; /* 设置最大宽度 */
+            text-align: center; /* 文本居中 */
+            font-weight: bold; /* 加粗文本 */
+        }
+
+        /* 文本框容器设置 */
+       .text-box-container {
+            position: absolute;
+            bottom: 30px; /* 根据需要调整文本框距离底部的距离 */
+            left: 55%;
+            transform: translateX(-50%);
+            width: 60%; /* 增加宽度 */
+            max-width: 800px; /* 增加最大宽度限制 */
+            text-align: left;
+            z-index: 3; /* 确保文本框在较高层 */
+        }
+
+        /* 文本框样式 */
+        #textBox {
+            padding: 40px; /* 增加内边距 */
+            font-size: 18px;
+            line-height: 2.2;
+            color: #333;
+           
+            border-radius: 10px;
+         
+            word-wrap: break-word; /* 确保长单词或 URL 不会溢出 */
+            min-height: 45px; /* 最小高度 */
+            
+            overflow-y: auto; /* 如果内容超出最大高度，则添加滚动条 */
+        }
+
+        /* 右上角按钮样式 */
+        #returnButton {
+            position: absolute;
+            width: 60px;
+            top: 100px; /* 按钮距离顶部的距离 */
+            right: 300px; /* 按钮距离右侧的距离 */
+            cursor: pointer; /* 更改鼠标指针为手型 */
+            z-index: 5; /* 确保按钮在最顶层 */
+        }
+
+        /* 布店老板对话样式 */
+       .boss-dialogue {
+            font-size: 20px; /* 增大字体大小 */
+            line-height: 28px; /* 增加行高 */
+            font-weight: 500; /* 设置字体粗细 */
+            color: #555; /* 设置字体颜色 */
+            text-align: left; /* 设置文本对齐方式 */
+            margin-bottom: 20px; /* 增加段落间距 */
+            font-family: 'Georgia', serif; /* 更换字体系列 */
+            quotes: "“" "”"; /* 设置引用符号 */
+        }
+
+       .boss-dialogue p {
+            margin: 1em 0; /* 设置段落间距 */
+            text-indent: 2em; /* 首行缩进 */
+        }
+
+       .boss-dialogue strong {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        /* 顶部图片高亮效果 */
+       .top-item img:hover {
+            opacity: 0.7; /* 改变透明度以产生高亮效果 */
+            transition: opacity 0.3s ease-in-out; /* 添加过渡效果使变化平滑 */
+            transform: scale(1.05); /* 稍微放大图片 */
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 背景图片 -->
+    <div class="background-container"></div>
+
+    <!-- 顶部图片和文本框 -->
+    <div class="top-items-container">
+        <div class="top-item" id="item2">
+            <img src="烟花动画.GIF" alt="Image 2">
+            <p>烟花</p>
+        </div>
+    </div>
+
+
+    <!-- 文本框 -->
+    <div class="text-box-container">
+        <div id="textBox" class="boss-dialogue">
+            <strong>老板:</strong>
+            <p id="textContent">[非常感谢你认真听完我的讲解，看来你对火药和鞭炮很感兴趣呢!为了表示感谢，我想邀请你一起放烟花，让我们共同感受这份来自古代的智慧和魅力吧!]</p>
+        </div>
+    </div>
+
+    <!-- 右上角返回按钮 -->
+    <img src="quit.png" alt="Return Button" id="returnButton" onclick="goBack()">
+
+    <script>
+        // 返回按钮点击事件处理函数
+        function goBack() {
+            window.location.href = "Technology.html"; // 将此替换为你的目标网址
+        }
+
+
+        // 给每个图片添加鼠标悬停事件监听器
+        document.querySelectorAll('.top-item').forEach(item => {
+            item.addEventListener('mouseover', function() {
+                const itemId = this.id;
+                if (texts[itemId]) {
+                    textContent.textContent = texts[itemId];
+                }
+            });
+
+            item.addEventListener('mouseout', function() {
+                textContent.textContent = defaultText;
+            });
+        });
+    </script>
+</body>
+</html>

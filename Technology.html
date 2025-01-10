@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技图</title>
+    <link rel="stylesheet" href="index-styles.css">
+</head>
+<body>
+
+    <audio id="backgroundMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- 新增的图片 -->
+    <div class="center-container">
+        <div class="image-container">
+            <img src="火药.png" alt="Image 1" id="manfabric" class="overlay-image">
+            <img src="造纸.png" alt="Image 3" id="manfortune" class="overlay-image">
+            <img src="活字.png" alt="Image 4" id="manbaozi" class="overlay-image">
+        </div>
+    </div>
+    <img src="指南针.png" alt="Image 2" id="manporcelain" class="overlay-image">
+
+    <div class="button-container">
+        <img id="toggleButton" src="onvolume.png" alt="Button 1" class="button" onclick="toggleImage()">
+        <img src="tips.png" alt="Button 2" class="button" onclick="location.href='tips.html'" />
+    </div>
+
+    <script src="index-scripts.js"></script>
+</body>
+</html>

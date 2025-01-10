@@ -1,0 +1,90 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background: url('backgroundnobody.png') no-repeat center center fixed;
+    background-size: cover; 
+    background-attachment: fixed;
+    position: relative;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#manporcelain {
+    width: 200px;
+    position: absolute;
+    top: 47%; 
+    right: 5%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.overlay-image {
+    width: 200px;
+    height: auto;
+    transition: filter 0.3s ease;
+}
+
+/* 鼠标悬停时的高亮效果 */
+.overlay-image:hover {
+    filter: brightness(1.2);
+}
+
+#manfabric {
+    position: absolute;
+    width: 250px;
+    top: 25%; 
+    left: 60%;
+    transform: translate(-50%, -50%); 
+}
+
+#manfortune {
+    width: 250px;
+    position: absolute;
+    top: 52%; 
+    right: 62%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+#manbaozi {
+    width: 165px;
+    position: absolute;
+    top: 55%; 
+    left: 5%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.button-container {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+}
+
+.button {
+    cursor: pointer;
+    margin-left: 15px;
+    width: 60px;
+    height: 60px;
+}
+
+
+audio {
+    display: none;
+}
